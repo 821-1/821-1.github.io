@@ -53,16 +53,17 @@ body {
 }
 
 .table-container {
-  max-height: 400px;  /* テーブルの最大高さ（これを超えるとスクロールする） */
-  overflow-y: auto;   /* 縦スクロールを有効にする */
+  max-height: 400px;
+  overflow-y: auto;
   border: 1px solid #ddd;
 }
-#gakunai {
+#gakunai,#futase,#seimon {
     border: 1px solid #e0e0e0;
     height: 600px;
-    overflow-y: auto;          /* ここで縦スクロールを発生させる */
-    border-radius: 8px;        /* 💡角丸はテーブルではなく、この親要素にかける */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 💡シャドウも親要素にかける */
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    white-space: pre-wrap;
 
     table {
         width: 100%;
@@ -82,9 +83,12 @@ body {
     }
 
     td {
+        border-style: solid;
+        border-color:#b7b5ff;
         padding: 12px;
         text-align: center;
         border-bottom: 1px solid #e0e0e0;
+        white-space: pre-wrap;
     }
 
     tr:last-child td {

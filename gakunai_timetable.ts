@@ -1,4 +1,4 @@
-interface TimeTableRow {
+interface gakunai_TimeTableRow {
     id: number;
     type: number;
     depart: string;
@@ -6,7 +6,7 @@ interface TimeTableRow {
     arriveSta: string | null;
 }
 
-const timeTable: TimeTableRow[]=[
+const gakunai_TimeTable: gakunai_TimeTableRow[]=[
     {"id":1,"type":2,"depart":"8:18","arriveBT":null,"arriveSta":"8:32"},
     {"id":2,"type":12,"depart":"8:41","arriveBT":null,"arriveSta":"8:55"},
     {"id":3,"type":1,"depart":"8:56","arriveBT":"9:05","arriveSta":"9:10"},
@@ -42,14 +42,14 @@ const timeTable: TimeTableRow[]=[
     {"id":33,"type":2,"depart":"20:45","arriveBT":"20:54","arriveSta":"20:59"}
 ]
 
-const table = document.createElement('table');
+const gakunai_table = document.createElement('table');
 
-if (timeTable.length > 0) {
+if (gakunai_TimeTable.length > 0) {
     // keyof TimeTableRow を使ってキーを取得
-    const keys: Array<keyof typeof timeTable[0]> = ['type','depart', 'arriveBT', 'arriveSta'];
+    const keys: Array<keyof typeof gakunai_TimeTable[0]> = ['type','depart', 'arriveBT', 'arriveSta'];
 
     const headerNames: Record<string, string> = {
-    'type': '種別、行先',
+    'type': '種別\n行先',
     'depart': '九工大発',
     'arriveBT': '飯塚BT着',
     'arriveSta': '新飯塚駅着'
@@ -63,25 +63,25 @@ if (timeTable.length > 0) {
         th.textContent = headerNames[key] || key;
         trHeader.appendChild(th);
     }
-    table.appendChild(trHeader);
+    gakunai_table.appendChild(trHeader);
 
     // --- テーブル本体の作成 ---
-    for (let i = 0; i < timeTable.length; i++) {
+    for (let i = 0; i < gakunai_TimeTable.length; i++) {
         const tr = document.createElement('tr');
         for (const key of keys) {
             const td = document.createElement('td');
             
-            const cellValue = timeTable[i][key];
+            const cellValue = gakunai_TimeTable[i][key];
             
             if(key === 'type'){
                 if(cellValue==51){
-                    td.textContent="特急 卸商団地・天神";
+                    td.textContent="特急\n卸商団地・天神";
                 }
                 else if(cellValue === 11||cellValue === 12){
-                    td.textContent="スクールバス 新飯塚駅(直行)";
+                    td.textContent="スクールバス\n新飯塚駅(直行)";
                 }
                 else if(cellValue === 1||cellValue === 2){
-                    td.textContent="スクールバス 飯塚バスターミナル・新飯塚駅";
+                    td.textContent="スクールバス\n飯塚バスターミナル・新飯塚駅";
                 }                
                 else{
                     td.textContent="error";
@@ -95,8 +95,8 @@ if (timeTable.length > 0) {
             }
             tr.appendChild(td);
         }
-        table.appendChild(tr);
+        gakunai_table.appendChild(tr);
     }
 }
 
-document.getElementById('gakunai')?.appendChild(table);
+document.getElementById('gakunai')?.appendChild(gakunai_table);
