@@ -1,9 +1,40 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>タイトル</title>
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <!-- ここに書きたい内容を書く -->
+    <div class="real-time">現在時刻: <span id="current-time"style="font-size: 2rem; font-family: monospace;"></span></div>
+    <div class="tab-wrapper">
+      <div class="tab-buttons">
+        <button type="button" class="tab-button active" data-tab="tab1">九工大飯塚キャンパス(構内)</button>
+        <button type="button" class="tab-button" data-tab="tab2">九工大飯塚キャンパス正門前</button>
+        <button type="button" class="tab-button" data-tab="tab3">二瀬交流センター前</button>
+        <button type="button" class="tab-button" data-tab="tab4">路線図</button>
+      </div>
+      <div class="tab-content-wrapper">
+        <div id="tab1" class="tab active">
+          <p>スクールバス:飯塚バスターミナル・新飯塚駅</p>
+          <p>特急:飯塚バスターミナル・天神方面</p>
+          <div id="gakunai"></div>
+        </div>
+        <div id="tab2" class="tab">
+          <p>2:飯塚バスターミナル・新飯塚駅方面</p>
+        </div>
+        <div id="tab3" class="tab">
+          <p>特急:飯塚バスターミナル・天神方面</p>
+          <p>2:飯塚バスターミナル・新飯塚駅方面</p>
+        </div>
+        <div id="tab4" class="tab">
+          <img src="images/路線図.png" alt="路線図" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="time.js"></script>
+    <script type="module" src="./timetable.js"></script>
   </body>
 </html>
